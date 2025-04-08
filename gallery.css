@@ -1,0 +1,410 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Left side navbar */
+aside {
+  width: 250px; 
+  background: #13163a; 
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #ecf0f1; 
+  font-family: sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  width: 100%;
+}
+
+/* Name effects From online */
+.matrix-bg {
+  background: #55638d; 
+  overflow: hidden;
+  margin: 0;
+  background-color: #00000007;
+  text-align: center;
+  padding: 0;
+  height: auto; 
+  width: 100%; 
+}
+
+.matrix-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  padding: 10px 15px; 
+  z-index: 2;
+  width: 100%;
+  height: auto; 
+}
+
+.matrix-text {
+  color: #13163a; 
+  font-size: 30px;
+  font-family: monospace;
+  position: relative;
+  text-shadow: 0 0 5px #6f57c5, 0 0 10px #6f57c5, 0 0 15px #6f57c5;
+  z-index: 2;
+  margin: 0; 
+  line-height: 1;
+}
+
+.matrix-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: glitch 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-0.5px, -0.5px);
+  color: #6f57c5;
+  text-shadow: 0 0 2px #6f57c5, 0 0 6px #6f57c5;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(174, 234, 0, 0.02) 0,
+    rgba(174, 234, 0, 0.05) 2px,
+    transparent 4px
+  );
+  animation: rain 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(0);
+  }
+  33% {
+    clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+    transform: translate(-1px, -1px);
+  }
+  66% {
+    clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+    transform: translate(1px, 1px);
+  }
+}
+
+/* Dynamic Text learn from Youtube */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.wrapper .static-txt {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.wrapper .dynamic-txts {
+  margin-left: 15px;
+  height: 20px; 
+  line-height: 20px; 
+  overflow: hidden;
+  text-align: left;
+}
+
+.dynamic-txts li {
+  list-style: none;
+  color: #8caff2;
+  font-size: 1rem;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
+  margin: 0;
+}
+
+@keyframes slide {
+  100% {
+    top: -80px;
+  }
+}
+
+.dynamic-txts li span {
+  position: relative;
+  margin: 0;
+  line-height: 20px; 
+}
+
+.dynamic-txts li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #13163a;
+  border-left: 2px solid #ffffff;
+  animation: typing 3s steps(17) infinite;
+}
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+/* Nav bar Items */
+
+.nav-links {
+  width: 100%;
+  margin-top:20px ;
+}
+
+.nav-links a {
+  display: flex;
+  justify-content: end;
+  text-decoration: none;
+  font-size: smaller;
+  color: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.nav-links a:hover{
+color: #8caff2;
+transition: 0.5s;
+
+}
+
+.nav-links i {
+  margin-right: 10px;
+  width: 20px; 
+  text-align: center;
+}
+
+.dark-light-toggle {
+  margin-top: 30px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.dark-light-toggle button {
+  background: none;
+  border: 1px solid #ecf0f1;
+  color: #ecf0f1;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dark-light-toggle button:hover {
+  background: #957aee;
+}
+
+/* Social media icons */
+
+.social-links {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.social-links a {
+  text-align: center;
+  color: #ecf0f1;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.copyright {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+main {
+  margin-left: 250px;
+  width: calc(100vw - 250px);
+}
+
+/* Responsive menu*/
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+/* I've take some help from ai for responsive aside */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  aside {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  aside.active {
+    transform: translateX(0);
+    z-index: 1000;
+  }
+
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+
+/* Back to top Button */
+/* From Uiverse.io by waliddu001 */ 
+.button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button:hover {
+  width: 70px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(154, 127, 253);
+  align-items: center;
+}
+
+
+
+#backBtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+
+
+/* Dark Mode Theme */
+.dark-theme {
+  background: #1e1e1e;
+  color: #f8f8f2; 
+}
+
+/* Left side navbar */
+.dark-theme aside {
+  background: #13163a;
+  color: #f8f8f2;
+}
+
+.dark-theme nav a {
+  color: #beaff0; 
+}
+
+.dark-theme nav a:hover {
+  color: #ff79c6; 
+}
+
+.dark-theme .dark-light-toggle button {
+  border-color: #f8f8f2;
+  color: #f8f8f2;
+}
+
+.dark-theme .dark-light-toggle button:hover {
+  background: #8be9fd; 
+  color: #282a36;
+}
+
+
+
+/* Galler */
+/* Online */
+.gallery {
+  padding: 5px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 5px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-grid img:nth-child(1) {
+  grid-row: span 2; 
+}
+
+.image-grid img:nth-child(4) {
+  grid-row: span 2; 
+}
+
+.image-grid img:nth-child(9) {
+  grid-row: span 2; 
+}
+
+.image-grid img:nth-child(12) {
+  grid-row: span 2; 
+}
