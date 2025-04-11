@@ -238,7 +238,7 @@ transition: 0.5s;
 /* Social media icons */
 
 .social-links {
-  margin-top: 90%;
+  margin-top: 80%;
   text-align: center;
 }
 
@@ -354,6 +354,7 @@ main {
   .about h2,  
   .about h4{
       margin-left: 8%;
+      
   }
   #seeBtn{
     margin-left: 8%;
